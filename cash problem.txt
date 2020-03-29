@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+//cash problem
+int main(void)
+
+{
+    int Quarter;
+    int Dime;
+    int Nickel;
+    int Penny;
+    int changeOutput = 0;
+
+    float changeInput;
+    
+    do
+    //prompt message for change input
+    {
+        changeInput = get_float("Change owed: ");
+    }
+
+    while (changeInput < 0);
+    //Round to nearest cent
+    //Get cents from dollar input
+    int cents = round(changeInput * 100);
+    //for get quarters
+    for (Quarter = 1; cents >= 25; Quarter++)
+    {
+        cents -= 25;
+        changeOutput += 1;
+    }
+    //for get amount dimes
+    for (Dime = 1; cents >= 10; Dime++)
+    {
+        cents -= 10;
+        changeOutput += 1;
+    }
+    //for get amount nickels
+    for (Nickel = 1; cents >= 5; Nickel++)
+    {
+        cents -= 5;
+        changeOutput += 1;
+    }
+    //for get amount penny
+    for (Penny = 1; cents >= 1; Penny++)
+    {
+        cents -= 1;
+        changeOutput += 1;
+    }
+    
+    printf("%i\n", changeOutput);
+
+}
