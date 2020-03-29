@@ -1,0 +1,33 @@
+#include <cs50.h>
+#include <stdio.h>
+
+
+int main(void)
+
+//Mario problem
+
+{
+ int h = 0;
+    do
+    {
+        h = get_int("Height: ");
+        for (int counter=1; counter <= h; counter++)
+        {
+            for (int c= 1; c <= h-counter; c++)
+            {
+                printf(".");
+            }
+            for (int x= 1; x <= counter; x++)
+            {
+                printf("#");
+            }
+            printf("  ");
+            for(int x=1; x <= counter; x++)
+            {
+                printf("#");
+            }
+            printf("\n");
+        }
+    } 
+    while(h <= 0);
+}
